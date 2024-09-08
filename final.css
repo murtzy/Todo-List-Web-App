@@ -1,0 +1,242 @@
+:root {
+--pink : #fb7da8;
+--blue : #058cd7;
+--purple : #552cb7;
+--green : #00995e;
+--orange : #ffc567;
+--red : #fd5a46;
+--black: #0d0d0d;
+--white: #F5F7F8;
+}
+
+::selection {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--orange);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 1rem;
+  max-width: 600px; /* klo gk pake ini, lebar full layar */
+  width: 100%;
+  margin: 0 auto;
+}
+
+header h1 {
+  color: var(--pink);
+  text-transform: uppercase;
+  font-size: 4rem;
+  filter: drop-shadow(7px 4px 0 var(--black));
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: var(--black);
+  margin-bottom: 1rem;
+}
+
+#task-form {
+  display: flex;
+  align-items: center;
+}
+
+input, button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#task-input {
+  flex: 1 1 0%;
+  padding: 1rem;
+  margin-right: .5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  transition: .2s;
+  border: 2px solid var(--black);
+  background-color: var(--green);
+}
+
+#task-input::placeholder {
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#task-input:focus {
+  filter: drop-shadow(3px 4px 0 var(--black));
+}
+
+#task-submit {
+  background-color: var(--red);
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  border: 2px solid var(--black);
+  transition: .2s;
+}
+
+#task-submit:hover {
+  filter: drop-shadow(3px 4px 0 var(--black));
+}
+
+main {
+  flex: 1 1 0%;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#task-list-section {
+  padding: 1rem;
+}
+
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blue);
+  border: 2px solid var(--black);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  transition: .3s;
+}
+
+.content {
+  flex: 1 1 0%;
+}
+
+
+.task-content {
+  font-weight: 500;
+  font-size: 1rem;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+.drop-shadow {
+  filter: drop-shadow(3px 4px 0 var(--black));
+}
+
+
+.task-list .action {
+  display: flex;
+}
+
+.task-list .action button{
+  padding: 0 .75rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.task-list .action button span {
+  display: block;
+  transition: .2s;
+}
+
+.task-list .action button span:hover {
+  color:var(--white) ;
+}
+
+.task-list .action .category {
+  position: relative;
+}
+
+.task-list .action .category ul.menu {
+  display: none;
+  background-color: var(--black);
+  border: solid 2px var(--black);
+  border-radius: 1.2rem;
+  margin-top: .1rem;
+  padding: .2rem 1rem;
+  position: absolute;
+  opacity: 0;
+  right: -50px;
+  z-index: 1;
+  transition: .3s;
+}
+
+.task-list .action .category ul li {
+  list-style-type: none;
+  /* display: none; */
+  padding: .3rem .5rem;
+  font-size: 1.4rem;
+  border-radius: 20%;
+  transition: .3s;
+  color: var(--white);
+}
+
+.task-list .action .category ul li:hover {
+  transform: translateY(-5px);
+}
+
+.task-list .action .category:hover ul {
+  display: flex;
+  opacity: 1;
+}
+
+.task-empty {
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.check {
+  width: 30px;
+}
+
+/* menghilangkan checkbox bawaan & styled unchecked */
+#toggle {
+  appearance: none;
+  margin: 0;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 0.15em solid var(--black);
+  border-radius: 1rem;
+  display: grid;
+  place-content: center;
+
+}
+
+#toggle::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1rem 1rem var(--black);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+#toggle:checked {
+  background-color: var(--white);
+}
+
+#toggle:checked::before {
+  transform: scale(1);
+}
+
+#toggle:hover::before {
+  box-shadow: inset 1rem 1rem #0f0f0f;
+}
+
+#toggle:hover{
+  background-color: var(--white);
+}
